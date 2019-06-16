@@ -8,7 +8,6 @@ import morgan from 'morgan';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 6600;
 const databaseUrl = process.env.DATABASE_URL;
 
 app.use(cors());
