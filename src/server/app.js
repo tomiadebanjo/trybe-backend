@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import morgan from 'morgan';
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ const databaseUrl = process.env.DATABASE_URL;
 
 app.use(cors());
 
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
