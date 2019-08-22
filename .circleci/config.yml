@@ -30,7 +30,7 @@ jobs:
           command: echo $(docker inspect trybe-backend --format={{.Id}})
       - run:
           name: "What was my custom environment variable?"
-          command: echo ${WEB_DOCKER_IMAGE_ID}
+          command: echo $WEB_DOCKER_IMAGE_ID
 
 workflows:
   version: 2
