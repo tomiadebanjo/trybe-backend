@@ -9,7 +9,8 @@ jobs:
           command: |
             docker build --rm=false -t trybe-backend .
             docker login --username=$HEROKU_EMAIL  --password=$HEROKU_API_KEY registry.heroku.com
-            echo "export WEB_DOCKER_IMAGE_ID='docker inspect my_image --format={{.Id}}'"
+            WEB_DOCKER_IMAGE_ID=$(echo docker inspect my_image --format={{.Id}})
+            echo "export WEB_DOCKER_IMAGE_ID" >> $BASH_ENV
             echo ${WEB_DOCKER_IMAGE_ID}
             docker tag trybe-backend:latest registry.heroku.com/vast-plains-42829/web
             docker push registry.heroku.com/vast-plains-42829/web
