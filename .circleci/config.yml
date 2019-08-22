@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build: # name of your job
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Deployment
+          command: |
+            docker build --rm=false -t trybe-backend .
+            docker login --email=$HEROKU_EMAIL --username=$HEROKU_EMAIL  --password=$HEROKU_API_KEY registry.heroku.com
+            docker tag trybe-backend:latest registry.heroku.com/vast-plains-42829/web
+            docker push registry.heroku.com/vast-plains-42829/web
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: develop

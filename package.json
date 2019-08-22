@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src -d dist",
-    "start:dev": "nodemon --exec babel-node src/server"
+    "start:dev": "nodemon --exec babel-node src/server",
+    "start": "node dist"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
