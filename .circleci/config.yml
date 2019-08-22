@@ -18,7 +18,7 @@ jobs:
               "updates": [
                 {
                   "type": "web",
-                  "docker_image": "'"$(docker inspect trybe-backend --format={{.Id}})"'"
+                  "docker_image": "'"$(docker inspect registry.heroku.com/vast-plains-42829/web --format={{.Id}})"'"
                 }
               ]}' \
             -H "Content-Type: application/json" \
