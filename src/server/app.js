@@ -20,6 +20,8 @@ mongoose
   .connect(databaseUrl, { useNewUrlParser: true })
   .catch(e => console.log(e.message));
 
-app.get("/", (req, res) => res.send({ hi: "Hello boy girl", databaseUrl }));
+app.get("/", (req, res) =>
+  res.send({ hi: "Hello boy girl GOGO", databaseUrl })
+);
 
 export default app;
