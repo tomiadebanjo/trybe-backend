@@ -18,7 +18,7 @@ jobs:
               "updates": [
                 {
                   "type": "web",
-                  "docker_image": "'"$WEB_DOCKER_IMAGE_ID"'"
+                  "docker_image": "'"$(docker inspect trybe-backend --format={{.Id}})"'"
                 }
               ]}' \
             -H "Content-Type: application/json" \
