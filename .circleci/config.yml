@@ -11,7 +11,8 @@ jobs:
             docker login --username=$HEROKU_EMAIL  --password=$HEROKU_API_KEY registry.heroku.com
             docker tag trybe-backend:latest registry.heroku.com/vast-plains-42829/web
             docker push registry.heroku.com/vast-plains-42829/web
-            WEB_DOCKER_IMAGE_ID=$(eval echo "$(docker inspect trybe-backend --format={{.Id}})" | cut -d':' -f 2)
+            # WEB_DOCKER_IMAGE_ID=$(eval echo "$(docker inspect trybe-backend --format={{.Id}})" | cut -d':' -f 2)
+            WEB_DOCKER_IMAGE_ID=$(docker inspect trybe-backend --format={{.Id}})
             echo "export WEB_DOCKER_IMAGE_ID" >> $BASH_ENV
             curl -n -X PATCH https://api.heroku.com/apps/vast-plains-42829/formation \
               -d '{
