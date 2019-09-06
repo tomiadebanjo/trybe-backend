@@ -9,6 +9,7 @@ A backend for a group management system.
 - MongoDB
 - Mongoose
 - Jest
+- Docker
 
 ## Requirements
 
